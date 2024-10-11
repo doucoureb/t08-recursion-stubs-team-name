@@ -11,7 +11,11 @@ def findme(item, thelist):
     """ Takes an integer, 'item', and searches for it in list 'thelist' recursively.
         Return True if item is in mylist, False otherwise.
     """
-    pass
+    if 0 == len(thelist):
+        return false 
+    elif item == thelist[0]:
+        return true
+    findme(item, mylist[1:])
   
 # Function 2: Determine the number of steps it takes to solve Tower of Hanoi with n rings.
 def hanoi(n):

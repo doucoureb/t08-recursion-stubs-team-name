@@ -11,7 +11,11 @@ def findme(item, thelist):
     """ Takes an integer, 'item', and searches for it in list 'thelist' recursively.
         Return True if item is in mylist, False otherwise.
     """
-    pass
+    if 0 == len(thelist):
+        return false 
+    elif item == thelist[0]:
+        return true
+    findme(item, mylist[1:])
   
 # Function 2: Determine the number of steps it takes to solve Tower of Hanoi with n rings.
 def hanoi(n):
@@ -30,24 +34,18 @@ def ispalindrome(thestring):
   
 # Function 4: Pretty-print a directory tree on your computer
 def printtree(f, prefix=''):
-    """ Print a formatted version of a portion of the file system.
-        Function should print out a number of asterisks equal to the recursion
-        depth.  When the function reahches a file, it should print the prefix
-        and the filename.  If it is a folder, the program should print the folder's
-        name and then recursively explore it.
-    helpful functions:
-      os.getcwd() returns the name of the current directory Python is looking in.
-      os.listdir(directoryName) returns a list of the names of all files and folders
-        found inside directoryName.  This can be an absolute path, or just the local
-        name of a file in the current working directory.
-      os.chdir(newDirectory) changes the current working directory to newDirectory.
-        newDirectory can be an absolute path, or the name of a folder inside the
-        current working directory.
-        os.chdir('..') takes you back out to whatever folder contains the one you are
-        currently in.
-      os.isdir(name) returns True if name is the name of a folder, and false otherwise.
-    """
-    pass
+     print(f"{prefix}{'*' * len(prefix)}{os.path.basename(f)}")
+if os.path.isdir(f):
+    # Get the list of items in the directory
+    items = os.listdir(f)
+        
+    for item in items:
+        # Construct the full path of the item
+        full_path = os.path.join(f, item)
+            
+        # Recursively call printtree for each item
+        printtree(full_path, prefix + ' ')
+pass
   
 # Helper function for mergesort
 def merge(lista, listb, listc):
